@@ -9,6 +9,7 @@
 namespace App\ApiModule\Presenters;
 
 use Nette;
+use Tracy\Debugger;
 
 
 
@@ -22,5 +23,21 @@ abstract class BasePresenter extends \App\BasePresenter
 	 * @persistent
 	 */
 	public $format = 'json';
+
+	/**
+	 * @var Nette\Application\Application
+	 * @inject
+	 */
+	public $application;
+
+
+
+	protected function startup()
+	{
+		Debugger::$productionMode = TRUE;
+		$this->application->errorPresenter = 'Api:Error';
+		$this->application->catchExceptions = TRUE;
+		parent::startup();
+	}
 
 }
