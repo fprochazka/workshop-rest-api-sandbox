@@ -48,6 +48,8 @@ abstract class BasePresenter extends \App\BasePresenter
 		Debugger::$productionMode = TRUE;
 		$this->application->errorPresenter = 'Api:Error';
 		$this->application->catchExceptions = TRUE;
+		$this->autoCanonicalize = FALSE;
+
 		parent::startup();
 
 		if (!$this->isMethodAllowed($this->getAction())) {
