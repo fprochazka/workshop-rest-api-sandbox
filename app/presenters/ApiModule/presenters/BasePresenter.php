@@ -60,6 +60,23 @@ abstract class BasePresenter extends \App\BasePresenter
 
 
 
+	public function success($status = 'ok')
+	{
+		$this->payload->status = $status;
+		$this->sendPayload();
+	}
+
+
+
+	public function error($error = NULL, $httpCode = IResponse::S404_NOT_FOUND)
+	{
+		$this->getHttpResponse()->setCode($httpCode);
+		$this->payload->status = 'error';
+		$this->sendPayload();
+	}
+
+
+
 	/**
 	 * Returns TRUE if given action is supported by current presenter.
 	 *
@@ -69,7 +86,7 @@ abstract class BasePresenter extends \App\BasePresenter
 	private function isMethodAllowed($action)
 	{
 		return $this->reflection->hasMethod($this->formatActionMethod($action))
-		|| $this->reflection->hasMethod($this->formatRenderMethod($action));
+			|| $this->reflection->hasMethod($this->formatRenderMethod($action));
 	}
 
 
@@ -89,6 +106,13 @@ abstract class BasePresenter extends \App\BasePresenter
 		}
 
 		return array_unique($allowedMethods);
+	}
+
+
+
+	public function sendTemplate()
+	{
+		throw new Nette\NotImplementedException;
 	}
 
 }
