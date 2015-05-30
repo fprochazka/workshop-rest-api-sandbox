@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "91572aa2575e23a576c365b6bcdd22ec",
+    "hash": "6ca978f28d98b22bf78d1640a9c9f618",
     "packages": [
         {
             "name": "kdyby/events",
@@ -88,6 +88,53 @@
                 "nette"
             ],
             "time": "2015-04-04 16:29:31"
+        },
+        {
+            "name": "kdyby/fake-session",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kdyby/FakeSession.git",
+                "reference": "aae8e33ec222b072898e7878a736dae5526b2c44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kdyby/FakeSession/zipball/aae8e33ec222b072898e7878a736dae5526b2c44",
+                "reference": "aae8e33ec222b072898e7878a736dae5526b2c44",
+                "shasum": ""
+            },
+            "require": {
+                "nette/di": "~2.2@dev",
+                "nette/http": "~2.2@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kdyby\\FakeSession\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Procházka",
+                    "email": "filip@prochazka.su",
+                    "homepage": "http://filip-prochazka.com"
+                }
+            ],
+            "description": "FakeSession class for Nette Framework",
+            "homepage": "http://kdyby.org",
+            "keywords": [
+                "http",
+                "kdyby",
+                "nette",
+                "session"
+            ],
+            "time": "2015-02-28 00:06:13"
         },
         {
             "name": "latte/latte",
@@ -1249,7 +1296,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kdyby/fake-session": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

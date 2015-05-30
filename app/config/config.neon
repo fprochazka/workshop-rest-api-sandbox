@@ -10,6 +10,7 @@ php:
 
 extensions:
 	events: Kdyby\Events\DI\EventsExtension
+	fakeSession: Kdyby\FakeSession\DI\FakeSessionExtension
 
 
 application:
@@ -19,6 +20,7 @@ application:
 
 
 session:
+	autoStart: off
 	expiration: 14 days
 
 
@@ -35,3 +37,4 @@ services:
 events:
 	subscribers:
 		- App\Api\ErrorPresenterListener
+		- App\Api\DisableSessionListener
