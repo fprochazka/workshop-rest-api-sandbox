@@ -46,9 +46,6 @@ abstract class BasePresenter extends \App\BasePresenter
 	protected function startup()
 	{
 		Debugger::$productionMode = TRUE;
-		$this->application->errorPresenter = 'Api:Error';
-		$this->application->catchExceptions = TRUE;
-		$this->autoCanonicalize = FALSE;
 
 		parent::startup();
 

@@ -26,17 +26,19 @@ class ErrorPresenter extends BasePresenter
 	public function actionDefault($exception)
 	{
 		if ($exception instanceof Nette\Application\BadRequestException) {
-
+			$this->payload->error = [
+				'message' => $exception->getMessage()
+			];
 
 		} else {
 			Debugger::log($exception, Debugger::ERROR); // and log exception
-		}
 
-		$this->payload->error = [
-			// 'code' => Presenter::ERR_INTERNAL_ERROR,
-			// 'type' => Presenter::$errorsTypes[Presenter::ERR_INTERNAL_ERROR],
-			'message' => Debugger::$productionMode ? 'Internal Server Error' : $exception->getMessage()
-		];
+			$this->payload->error = [
+				// 'code' => Presenter::ERR_INTERNAL_ERROR,
+				// 'type' => Presenter::$errorsTypes[Presenter::ERR_INTERNAL_ERROR],
+				'message' => Debugger::$productionMode ? 'Internal Server Error' : $exception->getMessage()
+			];
+		}
 	}
 
 

@@ -18,9 +18,17 @@ use Nette;
 class ShowsPresenter extends BasePresenter
 {
 
+	public function actionReadAll()
+	{
+		$this->success();
+	}
+
+
+
 	public function actionCreate()
 	{
-
+		$this->payload->pingBack = $this->request->getPost();
+		$this->success();
 	}
 
 }
