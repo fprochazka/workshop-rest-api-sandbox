@@ -18,7 +18,7 @@ class RouterFactory
 	{
 		$router = new RouteList();
 		$router[] = $api = new RouteList('Api');
-		$api[] = new RestRoute('/api/shows[.<format=json>]', 'Shows:');
+		$api[] = new RestRoute('/api/shows[/<id>]', 'Shows:');
 
 		$router[] = $front = new RouteList('Front');
 		$front[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');

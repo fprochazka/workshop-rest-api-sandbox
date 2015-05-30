@@ -24,6 +24,13 @@ class ShowsPresenter extends BasePresenter
 	}
 
 
+	public function actionRead($id)
+	{
+		$this->payload->show = ['id' => $id, 'name' => 'Agents of Shield'];
+		$this->success();
+	}
+
+
 
 	public function actionCreate()
 	{
