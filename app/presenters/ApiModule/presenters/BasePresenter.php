@@ -71,6 +71,9 @@ abstract class BasePresenter extends \App\BasePresenter
 	public function error($error = NULL, $httpCode = IResponse::S404_NOT_FOUND)
 	{
 		$this->getHttpResponse()->setCode($httpCode);
+		$this->payload->error = [
+			'message' => $error,
+		];
 		$this->payload->status = 'error';
 		$this->sendPayload();
 	}

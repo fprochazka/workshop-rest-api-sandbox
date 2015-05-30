@@ -18,7 +18,7 @@ use Nette;
 class ShowsPresenter extends BasePresenter
 {
 
-	public function renderDefault()
+	public function actionCreate()
 	{
 
 	}
