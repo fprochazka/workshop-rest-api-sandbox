@@ -22,7 +22,7 @@ abstract class BasePresenter extends \App\BasePresenter
 {
 
 	const HTTP_HEADER_ALLOW = "Allow";
-	const HTTP_HEADER_AUTHENTICATION_SIMPLE = "X-Authentication-Simple";
+	const HEADER_AUTHORIZATION = 'X-Api-Authorization';
 
 	/**
 	 * @var Nette\Application\Application
@@ -52,6 +52,13 @@ abstract class BasePresenter extends \App\BasePresenter
 		if (!$this->isMethodAllowed($this->getAction())) {
 			$this->getHttpResponse()->addHeader(self::HTTP_HEADER_ALLOW, implode(", ", $this->getAllowedMethods()));
 			$this->error("Method '{$this->getAction()}' not allowed", IResponse::S405_METHOD_NOT_ALLOWED);
+		}
+
+		if ($token = $this->getHttpRequest()->getHeader(self::HEADER_AUTHORIZATION)) {
+			// magic
+			if ($token === AccessTokenPresenter::PLACEHOLDER_API_ACCESS_TOKEN_DO_NOT_USE_ON_PRODUCTION) {
+				$this->user->login(new Nette\Security\Identity('admin', []));
+			}
 		}
 	}
 

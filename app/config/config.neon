@@ -22,9 +22,15 @@ session:
 	expiration: 14 days
 
 
+security:
+	users:
+		admin: admin
+
+
 services:
 	- App\RouterFactory()
 	router: @App\RouterFactory::create()
+
 
 events:
 	subscribers:

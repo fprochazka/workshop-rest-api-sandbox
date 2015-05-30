@@ -18,6 +18,7 @@ class RouterFactory
 	{
 		$router = new RouteList();
 		$router[] = $api = new RouteList('Api');
+		$api[] = new RestRoute('/api/access_token', 'AccessToken:');
 		$api[] = new RestRoute('/api/shows[/<id>]', 'Shows:');
 
 		$router[] = $front = new RouteList('Front');

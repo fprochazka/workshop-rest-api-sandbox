@@ -18,10 +18,22 @@ use Nette;
 class ShowsPresenter extends BasePresenter
 {
 
+	protected function startup()
+	{
+		parent::startup();
+
+		if (!$this->user->isLoggedIn()) {
+			$this->error("Unauthorized", Nette\Http\IResponse::S401_UNAUTHORIZED);
+		}
+	}
+
+
+
 	public function actionReadAll()
 	{
 		$this->success();
 	}
+
 
 
 	public function actionRead($id)
