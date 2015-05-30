@@ -21,7 +21,7 @@ use Tracy\Debugger;
 abstract class BasePresenter extends \App\BasePresenter
 {
 
-	const HTTP_HEADER_ALLOW = "Allow";
+	const HTTP_HEADER_ALLOW = "Access-Control-Allow-Methods";
 	const HEADER_AUTHORIZATION = 'X-Api-Authorization';
 
 	/**
